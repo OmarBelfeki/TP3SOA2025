@@ -29,6 +29,8 @@ Contrairement à une architecture classique basée sur un serveur d’applicatio
 
 L’API réalisée correspond à un service de calculatrice REST proposant les opérations arithmétiques de base : addition, soustraction, multiplication et division.
 
+De plus, l’outil Postman n’étant pas fonctionnel sur mon ordinateur, j’ai utilisé le client HTTP intégré à IntelliJ (.http) pour tester les endpoints. L’API est exécutée via GrizzlyHttpServerFactory puisque Tomcat n’a pas pu être configuré correctement.
+
 ---
 
 ## 2. Environnement technique utilisé
@@ -44,7 +46,7 @@ Les outils et technologies utilisés pour la réalisation de ce TP sont les suiv
 - **Serveur HTTP embarqué :** Grizzly
 - **Mode d’exécution :** Application Java standalone
 - **Format d’échange :** JSON
-- **Outils de test :** Postman / IntelliJ HTTP Client (.http)
+- **Outils de test :** IntelliJ HTTP Client (.http)
 
 ---
 
@@ -93,25 +95,36 @@ GET http://localhost:8080/api/calcul/addition?a=5&b=3
 
 ## 4. Tests de l’API
 
-Les tests de l’API ont été réalisés à l’aide de l’outil Postman ainsi que du client HTTP intégré à l’IDE IntelliJ via des fichiers `.http`.
+Les tests de l’API ont été réalisés à l’aide du client HTTP intégré à IntelliJ via des fichiers `.http`. Chaque endpoint a été testé en envoyant des requêtes HTTP de type GET avec différents paramètres. Les réponses JSON retournées confirment le bon fonctionnement des opérations proposées.
 
-Chaque endpoint a été testé en envoyant des requêtes HTTP de type GET avec différents paramètres. Les réponses JSON retournées confirment le bon fonctionnement des opérations proposées.
+### 4.1 Tests effectués
 
-Les tests effectués sont les suivants :
 - Test de l’endpoint d’addition
 - Test de l’endpoint de soustraction
 - Test de l’endpoint de multiplication
 - Test de l’endpoint de division
+- Test de l’endpoint de division par zéro
 
-Les captures d’écran des requêtes et des réponses obtenues sont jointes dans ce rapport.
+### 4.2 Captures d’écran
 
-**Figure 1 :** Test de l’endpoint Addition
+**Figure 1 :** Test de l’endpoint Addition  
+<img width="1366" height="805" alt="7-test-addition" src="https://github.com/user-attachments/assets/90e5e4d8-ce15-45ca-a2b6-5bb65a1bc30f" />
 
-**Figure 2 :** Test de l’endpoint Soustraction
 
-**Figure 3 :** Test de l’endpoint Multiplication
+**Figure 2 :** Test de l’endpoint Soustraction  
+<img width="1366" height="805" alt="7-test-soustraction" src="https://github.com/user-attachments/assets/b4275955-189d-4cc0-8059-4936af479b8b" />
 
-**Figure 4 :** Test de l’endpoint Division
+
+**Figure 3 :** Test de l’endpoint Multiplication  
+<img width="1366" height="805" alt="7-test-multiplication" src="https://github.com/user-attachments/assets/3e6deca9-8c7c-4e0e-8557-e44e8722fc5e" />
+
+
+**Figure 4 :** Test de l’endpoint Division  
+<img width="1366" height="805" alt="7-test-division" src="https://github.com/user-attachments/assets/d7025626-6098-400f-97e7-89878ccbcc9b" />
+
+
+**Figure 5 :** Test de l’endpoint Division par zéro  
+<img width="1366" height="805" alt="7-test-division-zero" src="https://github.com/user-attachments/assets/ec7c4bc7-7ec8-43af-bdca-3a6bc89386d6" />
 
 ---
 
@@ -122,7 +135,7 @@ L’architecture de l’application repose sur un modèle REST simple et efficac
 ### Schéma de l’architecture
 
 ```
-[ Client (Postman / HTTP Client) ]
+[ Client (HTTP Client IntelliJ) ]
                 |
                 v
      [ Grizzly HTTP Server ]
@@ -152,4 +165,3 @@ Les objectifs pédagogiques du TP ont été atteints et cette réalisation const
 ---
 
 **Fin du rapport**
-
